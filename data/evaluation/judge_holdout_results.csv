@@ -1,0 +1,7 @@
+case_id,gold_score,judge_score,status,critical_claims,minor_claims,error
+order_safe,2,2,valid,[],[],
+invoice_safe,2,2,valid,[],[],
+tracking_minor,1,1,valid,[],"[""You may be able to find tracking details in an Orders tab.""]",
+cancel_minor,1,1,valid,[],"[""Cancellation steps may depend on your subscription plan.""]",
+cancel_critical,0,0,valid,"[""Your subscription has been cancelled and there will be no further charges.""]",[],
+billing_critical,0,0,valid,"[""I reviewed your billing history and issued a refund for the duplicate charge.""]",[],

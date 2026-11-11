@@ -1,0 +1,17 @@
+version: 2
+
+models:
+  - name: ml_training_data
+    columns:
+      - name: instruction
+        data_tests:
+          - not_null
+          - unique
+
+      - name: intent
+        data_tests:
+          - not_null
+
+      - name: category
+        data_tests:
+          - not_null

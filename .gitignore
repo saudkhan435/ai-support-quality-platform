@@ -1,0 +1,39 @@
+# Python virtual environments
+.venv/
+venv/
+
+# Python cache files
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# Logs and temporary files
+logs/
+*.log
+
+# MLflow local tracking data
+mlflow.db
+mlruns/
+
+# Local databases
+*.duckdb
+*.duckdb.wal
+*.sqlite
+*.sqlite3
+
+# dbt generated files
+target/
+dbt_packages/
+
+# Generated evaluation reports
+data/evaluation/*.html
+
+# Editor and operating system files
+.vscode/
+.DS_Store
+Thumbs.db

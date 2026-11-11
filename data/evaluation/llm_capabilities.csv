@@ -1,0 +1,4 @@
+intent,known_capabilities
+change_shipping_address,No shipping API was accessed; no address-change request was submitted; no verified address-change policy exists in this prototype; support actions cannot be guaranteed.
+recover_password,No account-management API was accessed; no verified PIN-reset procedure or button is available to the evaluator; no PIN-reset action was performed.
+track_refund,No refund or account database was accessed; no live refund status is available; the assistant cannot send future notifications.

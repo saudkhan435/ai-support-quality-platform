@@ -1,0 +1,12 @@
+name: support-intent-inference
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile.api
+
+    image: support-intent-api:local
+
+    ports:
+      - "8001:8000"

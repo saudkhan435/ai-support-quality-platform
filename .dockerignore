@@ -1,0 +1,17 @@
+# Local Python environment
+.venv/
+__pycache__/
+*.pyc
+
+# Git and testing files
+.git/
+.pytest_cache/
+
+# MLflow tracking files
+mlruns/
+mlflow.db
+
+# Local configuration and logs
+.env
+.env.*
+*.log

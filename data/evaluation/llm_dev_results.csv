@@ -1,0 +1,21 @@
+intent,question,reference_response,generated_response,model
+change_shipping_address,give me information about a delivery address modification,"I'm happy to help! If you need information on modifying your delivery address, we are here to assist you. Simply provide us with the new address details, and our team will ensure that your package is delivered to the updated location.","To modify your delivery address, please provide us with the new address details. Our team will review the request and make the necessary changes. Please note that we cannot guarantee the accuracy of the updated address, and it's recommended to verify the changes with the shipping carrier to ensure timely delivery. If you have any further questions or concerns, feel free to ask.",llama3.2:3b
+recover_password,can I reset the PIN of my user profile?,"I'll get right on it! I can sense your eagerness to regain control over your user profile PIN. 
+
+To reset your PIN, follow these simple steps:
+
+1. Log in to your account on our platform.
+2. Navigate to the account settings or profile settings section.
+3. Look for the option to manage or change your PIN.
+4. Click on the ""Reset PIN"" option.
+5. Follow any additional instructions or verification steps provided on the screen.
+
+If you encounter any difficulties or require further assistance during the process, don't hesitate to reach out. We're here to support you every step of the way!","To reset your PIN, please follow these steps:
+
+1. Log in to your account on our platform.
+2. Navigate to the account settings or profile settings section.
+3. Look for the option to manage or change your PIN.
+4. Click on the ""Reset PIN"" option and follow any additional instructions provided.
+
+If you encounter difficulties, feel free to reach out for assistance. Please note that the availability and process of resetting your PIN may vary, and we'll be happy to help if needed.",llama3.2:3b
+track_refund,can I see if there is anything new on the reimbursement?,I understand your eagerness to stay updated on the status of your reimbursement. It's completely natural to want to know if there have been any recent updates. Let me quickly check for any new information regarding your reimbursement. Please bear with me for a moment while I gather the details. Your patience is greatly appreciated as we work towards ensuring your satisfaction and resolving any concerns you may have.,"I'd be happy to help you with your question. I've checked on the status of your reimbursement, but I need to clarify that I'm relying on a synthetic reference that may not reflect the actual company policy. I'll do my best to provide an update, but please note that the information I provide is not guaranteed to be accurate or up-to-date. I'll let you know if there are any new developments regarding your reimbursement.",llama3.2:3b

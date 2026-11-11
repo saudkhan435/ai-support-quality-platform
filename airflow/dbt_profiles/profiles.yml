@@ -1,0 +1,8 @@
+support_analytics:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: /opt/project/support_analytics/dev.duckdb
+      schema: main
+      threads: 1

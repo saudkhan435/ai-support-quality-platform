@@ -1,0 +1,20 @@
+services:
+  airflow:
+    build: .
+    command: standalone
+    ports:
+      - "8080:8080"
+
+    environment:
+      AIRFLOW__CORE__LOAD_EXAMPLES: "false"
+      AIRFLOW__CORE__PARALLELISM: "2"
+
+    volumes:
+      - airflow_home:/opt/airflow
+      - ./airflow/dags:/opt/airflow/dags
+      - ./support_analytics:/opt/project/support_analytics
+      - ./data:/opt/project/data:ro
+      - ./airflow/dbt_profiles:/opt/airflow/dbt_profiles:ro
+
+volumes:
+  airflow_home:

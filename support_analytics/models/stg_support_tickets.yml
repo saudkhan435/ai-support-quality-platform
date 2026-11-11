@@ -1,0 +1,20 @@
+version: 2
+
+models:
+  - name: stg_support_tickets
+    columns:
+      - name: instruction
+        data_tests:
+          - not_null
+
+      - name: intent
+        data_tests:
+          - not_null
+
+      - name: category
+        data_tests:
+          - not_null
+
+      - name: response
+        data_tests:
+          - not_null
