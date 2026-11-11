@@ -27,3 +27,23 @@ jobs:
 
       - name: Run API unit tests
         run: python -m pytest tests/test_api.py -q
+
+      - name: Build Docker image
+        run: docker build -f Dockerfile.api -t support-api:test .
+
+      - name: Start API container
+        run: docker run -d --name support-api-ci -p 8001:8000 support-api:test
+
+      - name: Wait for API to become ready
+        run: |
+          for i in {1..30}; do
+            if curl -fsS http://127.0.0.1:8001/health; then
+              exit 0
+            fi
+            sleep 2
+          done
+          docker logs support-api-ci
+          exit 1
+
+      - name: Run Docker integration tests
+        run: python -m pytest tests/test_container_api.py -q
