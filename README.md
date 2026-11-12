@@ -31,8 +31,11 @@ The project uses the following technologies:
 | Evaluation reporting | Evidently | Produce quality metrics and reports |
 | Model serving | FastAPI | Expose intent predictions through an API |
 | Containerization | Docker | Package and run the API |
+| CI/CD | GitHub Actions | Run tests, publish images, and deploy after successful checks |
+| Container registry | GitHub Container Registry (GHCR) | Store versioned Docker images |
+| Cloud deployment | Azure Container Apps | Host the containerized classifier API |
 
-**CI/CD and cloud deployment are planned next.**
+**The intent-classification API is deployed to Azure Container Apps through an automated GitHub Actions CI/CD pipeline.** The data pipeline and local LLM evaluation remain separate from the cloud deployment.
 
 ## 3. Intent Classification
 
@@ -140,9 +143,6 @@ The judge's standalone calibration and holdout experiments are available through
 - LLM judge scores are provisional and can contain errors.
 - No live customer account, refund, or shipping systems are connected.
 - LLM evaluation currently runs locally rather than as part of the deployed API.
-- Cloud deployment and automated CI/CD are not yet implemented.
-
-
 ## 7. Cloud Deployment and CI/CD
 
 The intent-classification API is deployed to Microsoft
