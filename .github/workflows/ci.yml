@@ -1,4 +1,5 @@
-name: API Continuous Integration
+
+name: API Continuous Integration and Deployment
 
 on:
   push:
@@ -7,6 +8,7 @@ on:
     branches: [main]
 
 jobs:
+  # Job 1: Run automated tests
   test:
     runs-on: ubuntu-latest
 
@@ -48,6 +50,7 @@ jobs:
       - name: Run Docker integration tests
         run: python -m pytest tests/test_container_api.py -q
 
+  # Job 2: Publish tested Docker image to GHCR
   publish:
     needs: test
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
@@ -74,4 +77,34 @@ jobs:
           context: .
           file: ./Dockerfile.api
           push: true
-          tags: ghcr.io/saudkhan435/ai-support-quality-platform:latest
+          tags: |
+            ghcr.io/saudkhan435/ai-support-quality-platform:latest
+            ghcr.io/saudkhan435/ai-support-quality-platform:${{ github.sha }}
+
+  # Job 3: Deploy the new image to Azure Container Apps
+  deploy:
+    needs: publish
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+
+    permissions:
+      id-token: write
+      contents: read
+
+    steps:
+      - name: Login to Azure using OIDC
+        uses: azure/login@v3
+        with:
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+
+      - name: Deploy to Azure Container Apps
+        run: |
+          az extension add --name containerapp --upgrade
+          az containerapp update \
+            --name ai-support-api \
+            --resource-group rg-ai-support-quality \
+            --image ghcr.io/saudkhan435/ai-support-quality-platform:${{ github.sha }} \
+            --min-replicas 0 \
+            --max-replicas 1
