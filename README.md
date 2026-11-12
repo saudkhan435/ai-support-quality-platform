@@ -142,12 +142,49 @@ The judge's standalone calibration and holdout experiments are available through
 - LLM evaluation currently runs locally rather than as part of the deployed API.
 - Cloud deployment and automated CI/CD are not yet implemented.
 
-## 7. Next Steps
 
-- Implement automated testing with GitHub Actions.
-- Build a continuous deployment workflow.
-- Deploy the supported application components using free cloud infrastructure where feasible.
-- Validate the deployment and document its limitations.
+## 7. Cloud Deployment and CI/CD
+
+The intent-classification API is deployed to Microsoft
+Azure Container Apps in the Germany West Central region.
+
+### Continuous Integration
+
+GitHub Actions automatically:
+- Runs FastAPI unit tests.
+- Builds the Docker image.
+- Starts the container and runs integration tests.
+
+### Continuous Deployment
+
+After successful tests:
+- GitHub Actions builds and publishes a versioned
+  Docker image to GitHub Container Registry (GHCR).
+- GitHub Actions authenticates to Azure using
+  OpenID Connect (OIDC).
+- Azure Container Apps deploys the new image.
+
+The deployed API exposes:
+- GET /health
+- POST /predict
+- GET /docs
+
+Azure Container Apps uses the Consumption plan with
+0 minimum replicas and 1 maximum replica.
+
+The cloud deployment serves the trained scikit-learn
+intent classifier. Airflow, dbt, MLflow and local
+LLM evaluation are not deployed as cloud services.
+
+### Cost Considerations
+
+Deployment was demonstrated using Azure Free Trial
+credits. Actual cloud availability depends on the
+Azure subscription and its billing status.
+
+The API is an educational prototype, not a
+production customer-support service.
+
 
 ## Dataset Attribution
 
